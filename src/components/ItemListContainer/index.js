@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import Title from '../Title';
-import ItemCount from '../ItemCount';
+// import ItemCount from '../ItemCount';
 import ItemList from '../ItemList';
-import ItemDetailContainer from '../ItemDetailContainer';
+import ItemDetail from '../ItemDetail';
 
 
 const product = [
@@ -12,29 +12,24 @@ const product = [
 
 ];
 
-export const ItemListContainer = ({texto}) => {
-    const [data, setData] = useState ([]);
-    
-    useEffect (() => {
-        const getData = new Promise (resolve => {
-            setTimeout(() => {
-                resolve(product);
-            }, 3000);
-        });
-        getData.then(res => setData(res));
+export const ItemListContainer = ({ texto }) => {
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
-    }, []);
+    const onProductSelect = (product) => { 
+        setSelectedProduct(product);
+    };
 
-    const onAdd= (quantity) => {
-        console.log(`Compraste ${quantity} unidades`);
-    }
+    // const onAdd = (quantity) => {
+    //     console.log(`Compraste ${quantity} unidades de ${selectedProduct.title}`);
+    // }
 
     return (
-    <>
-       <Title greeting={texto} />
-       <ItemCount initial={1} stock= {5} onAdd={onAdd} />
-       <ItemList data={data} />
-    </>
+        <>
+            <Title greeting={texto} />
+            {/* <ItemCount initial={1} stock={5} onAdd={onAdd} /> */}
+            {product && <ItemList data={product} onProductSelect={onProductSelect} />}
+            {selectedProduct && <ItemDetail data={selectedProduct} />}
+        </>
     );
 }
 
