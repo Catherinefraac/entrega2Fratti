@@ -6,7 +6,6 @@ const Item = ({info, onClick}) => {
         <a href='' className='product'>
             <img src={info.image} alt="" />
             <p>{info.title}</p>
-            <p>{info.price}</p>
         </a>
     );
 }

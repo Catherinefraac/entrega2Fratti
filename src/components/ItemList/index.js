@@ -7,7 +7,6 @@ const ItemList = ({ data, onProductSelect }) => {
                 <div key={product.id} onClick={() => onProductSelect(product)}>
                     <img src={product.image} alt={product.title} />
                     <p>{product.title}</p>
-                    <p>{product.price}</p>
                 </div>
             ))}
         </div>
