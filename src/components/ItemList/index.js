@@ -1,15 +1,10 @@
+import Item from '../Item';
 import React from 'react';
 
-const ItemList = ({ data, onProductSelect }) => {
-    return (
-        <div>
-            {data.map((product) => (
-                <div key={product.id} onClick={() => onProductSelect(product)}>
-                    <img src={product.image} alt={product.title} />
-                    <p>{product.title}</p>
-                </div>
-            ))}
-        </div>
+const ItemList = ({data= [] }) => {
+return (
+        data.map(product => <Item key={product.id} info={product} />)
+        
     );
 }
 

@@ -1,0 +1,10 @@
+.itemCart {
+    display: flex;
+    border-bottom: 1px solid rgb(231, 225, 225);
+    max-width: 1rem auto;
+}
+
+.itemCart img {
+    width: 200px;
+    margin-right: 1rem;
+}

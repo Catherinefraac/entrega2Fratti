@@ -1,12 +1,16 @@
 import './Item.css';
-import React from 'react';
+import { Link } from 'react-router-dom';
+import React, {useContext} from 'react';
+import {CartContext} from '../../Context/CartContext';
 
-const Item = ({info, onClick}) => {
+const Item = ({info}) => {
+    const nombre = useContext (CartContext);
+    console.log('Item:', nombre);
     return (
-        <a href='' className='product'>
+        <Link to={`/detalle/${info.id}`} className="product">
             <img src={info.image} alt="" />
             <p>{info.title}</p>
-        </a>
+        </Link>
     );
 }
 

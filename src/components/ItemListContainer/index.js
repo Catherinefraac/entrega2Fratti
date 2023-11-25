@@ -1,18 +1,16 @@
 import React, {useEffect, useState} from "react";
 import Title from '../Title';
-import ItemCount from '../ItemCount';
 import ItemList from '../ItemList';
-import ItemDetail from '../ItemDetail';
 import { useParams } from "react-router-dom";
 
 
 const product = [
-    { id: 1, image: "./imgr/Aperol.png", title:"Aperol", category: 'Bebidasconalcohol',},
-    { id: 2, image: "./imgr/Daiquiri.png", title:"Daiquiri", category: 'Bebidasconalcohol'},
-    { id: 3, image: "./imgr/Martini.png", title:"Martini", category: 'Bebidasconalcohol'},
-    { id: 4, image: "./imgr/limonada.png", title: "Limonada", category: 'Bebidassinalcohol'},
-    { id: 5, image: "./imgr/pinacolada.png", title: "Piña colada", category: 'Bebidassinalcohol'},
-    { id: 6, image: "./imgr/jugodenaranja.png", title: "Jugo de naranja", category: 'Bebidassinalcohol'},
+    { id: 1, price: 100, image: "./imgr/Aperol.png", title:"Aperol", category: 'Bebidasconalcohol',},
+    { id: 2, price: 150, image: "./imgr/Daiquiri.png", title:"Daiquiri", category: 'Bebidasconalcohol'},
+    { id: 3, price: 200, image: "./imgr/Martini.png", title:"Martini", category: 'Bebidasconalcohol'},
+    { id: 4, price: 50, image: "./imgr/limonada.png", title: "Limonada", category: 'Bebidassinalcohol'},
+    { id: 5, price: 70, image: "./imgr/pinacolada.png", title: "Piña colada", category: 'Bebidassinalcohol'},
+    { id: 6, price: 90, image: "./imgr/jugodenaranja.png", title: "Jugo de naranja", category: 'Bebidassinalcohol'},
 
 ];
 
@@ -35,14 +33,11 @@ useEffect (() => {
     }
 }, [categoriaId])
 
-     const onAdd = (quantity) => {
-        console.log(`Compraste ${quantity} unidades`);
-    }
+
 
     return (
         <>
             <Title greeting={texto} />
-            <ItemCount initial={1} stock={5} onAdd={onAdd} />
             <ItemList data= {data} />
         </>
     );
